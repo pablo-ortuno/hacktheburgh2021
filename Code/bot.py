@@ -11,7 +11,7 @@ img_width = 180
 model = keras.models.load_model('model')
 
 # Bot Token - "ID of the bot"
-token = 'ODE3OTM4MDQ3ODExMzIxODU3.YEQyKw.YDP1L-Goq63PAwrPIANYt9K25BY'
+token = 'ODE3OTM4MDQ3ODExMzIxODU3.YEQyKw.4ugeSWZtDb5XWrIeBbOFdBfL_Rw'
 # Bot's client
 client = commands.Bot(command_prefix = '!')
 # Just so I know the bot is running

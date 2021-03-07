@@ -12,7 +12,7 @@ from tensorflow.keras.models import Sequential
 batch_size = 32
 img_height = 180
 img_width = 180
-
+# Set working directory. Could use OS but preferred to do it manually
 data_dir = r"C:\Users\pablo\github\ideatron3000\Data"
 
 # Split 80% of data for training
@@ -32,6 +32,7 @@ val_ds = tf.keras.preprocessing.image_dataset_from_directory(
   image_size=(img_height, img_width),
   batch_size=batch_size)
 
+# Debuggin purposes, names of classes
 class_names = train_ds.class_names
 
 # Configure the dataset for a better performance
@@ -74,4 +75,34 @@ model.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentro
 # fit the model
 epochs = 15
 model.fit(train_ds, validation_data=val_ds, epochs=epochs)
+# Save the model so it can be used in other scripts
 model.save('model')
+
+# Visualise results
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+epochs_range = range(epochs)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label='Training Accuracy')
+plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+plt.legend(loc='lower right')
+plt.title('Training and Validation Accuracy')
+plt.ylim([0.4,1])
+plt.ylabel("%")
+plt.xlabel("epoch")
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label='Training Loss')
+plt.plot(epochs_range, val_loss, label='Validation Loss')
+plt.legend(loc='upper right')
+plt.title('Training and Validation Loss')
+plt.ylim([0.4,1])
+plt.ylabel("%")
+plt.xlabel("epoch")
+plt.show()
