@@ -74,9 +74,13 @@ model = Sequential([
 model.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'])
 # fit the model
 epochs = 15
-model.fit(train_ds, validation_data=val_ds, epochs=epochs)
+history = model.fit(
+  train_ds,
+  validation_data=val_ds,
+  epochs=epochs
+)
 # Save the model so it can be used in other scripts
-model.save('model')
+# model.save('model')
 
 # Visualise results
 acc = history.history['accuracy']
@@ -93,16 +97,10 @@ plt.plot(epochs_range, acc, label='Training Accuracy')
 plt.plot(epochs_range, val_acc, label='Validation Accuracy')
 plt.legend(loc='lower right')
 plt.title('Training and Validation Accuracy')
-plt.ylim([0.4,1])
-plt.ylabel("%")
-plt.xlabel("epoch")
 
 plt.subplot(1, 2, 2)
 plt.plot(epochs_range, loss, label='Training Loss')
 plt.plot(epochs_range, val_loss, label='Validation Loss')
 plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
-plt.ylim([0.4,1])
-plt.ylabel("%")
-plt.xlabel("epoch")
 plt.show()
