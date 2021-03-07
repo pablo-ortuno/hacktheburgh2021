@@ -11,7 +11,7 @@ model = keras.models.load_model('model')
 
 image_count = 1
 
-token = 'ODE3OTM4MDQ3ODExMzIxODU3.YEQyKw.SXkfJRC8XGkrnxPKiipgFF5mfAQ'
+token = 'ODE3OTM4MDQ3ODExMzIxODU3.YEQyKw.YDP1L-Goq63PAwrPIANYt9K25BY'
 
 client = commands.Bot(command_prefix = '!')
 
@@ -20,9 +20,9 @@ async def on_ready():
     print("Bot is ready")
     print("-----------------------------")
 
-@client.command()
-async def hello(ctx):
-    await ctx.send("Fuck you")
+@client.command(ctx)
+async def hello():
+    await ctx.send("hey")
 
 @client.event
 async def on_message(message):
