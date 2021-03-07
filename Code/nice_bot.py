@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 
-token = 'ODE4MDU1MDE2OTg3NjIzNDI0.YESfGg.G6sPX67cYBcHke9JlIMLQJNnEcA'
+token = 'ODE4MDU1MDE2OTg3NjIzNDI0.YESfGg.2nbRyQZIqr4KXq2e9cJQI-rLe4s'
 
 client = commands.Bot(command_prefix = '$')
 
@@ -18,11 +18,7 @@ async def on_member_join():
 
 @client.command()
 async def rate(ctx):
-        score = random.randint(0,100)
-
+        score = random.randint(50,100)
         await ctx.send('This setup has a score of ' + str(score))
-
-        if score <= 40:
-            await ctx.send('That is not a great setup is it mate')
 
 client.run(token)
