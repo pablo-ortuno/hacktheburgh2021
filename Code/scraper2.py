@@ -23,16 +23,14 @@ u_agnt = {
     'Connection': 'keep-alive',
 } #write: 'my user agent' in browser to get your browser user agent details
 
-Image_Folder = 'Images_not_setup'
+Image_Folder = 'Images'
 
 def main():
     if not os.path.exists(Image_Folder):
         os.mkdir(Image_Folder)
     download_images()
 
-def download_images():
-    data = 'work meeting'
-    num_images = 80
+def download_images(data, num_images):
 
     print('Searching Images....')
 
