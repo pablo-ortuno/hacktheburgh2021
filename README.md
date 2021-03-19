@@ -5,8 +5,7 @@
 To create a discord bot which takes images of user's computer setups and returns a score. To do this I created a working model and then tried to implement it in Discord as a bot  
 
 #### 1 - Model
-For the model I used a total of 720 images scraped from the web. 400 images were given as setups and 320 images were given as not setups. It was split as follows:
-80 imageseach from google searchs:
+For the model I used a total of 720 images scraped from the web. 400 images were given as setups and 320 images were given as not setups. It was split with 80 images each from google searchs:
   - computer desk setup
   - computer gaming setup
   - computer setup for programming
@@ -17,6 +16,7 @@ For the model I used a total of 720 images scraped from the web. 400 images were
   - open office space
   - music setup
   - work meeting
+
 After doing some data processing I fitted the model using a 80/20 percent split in training and testing data. The results were not great and there are signs of overfitting. Probably due to the small amount of data used.
 
 #### 2 - Implementation in Discord
